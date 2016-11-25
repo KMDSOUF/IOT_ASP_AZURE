@@ -10,6 +10,6 @@ namespace Yourlake_Azure.Context
     public class Context : DbContext
     {
         public DbSet<Region> Regions { get; set; }
-        public DbSet<Donnee> Donnnes { get; set; }
+        public DbSet<Donnee> Donnnees { get; set; }
     }
 }
