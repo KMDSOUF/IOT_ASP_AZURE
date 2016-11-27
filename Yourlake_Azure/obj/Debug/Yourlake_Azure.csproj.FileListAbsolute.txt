@@ -98,3 +98,4 @@ C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_
 C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\bin\fr\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\obj\Debug\Yourlake_Azure.dll
 C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\obj\Debug\Yourlake_Azure.pdb
+C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\obj\Debug\Yourlake_Azure.csprojResolveAssemblyReference.cache

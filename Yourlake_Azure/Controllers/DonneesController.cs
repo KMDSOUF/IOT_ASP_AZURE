@@ -61,65 +61,7 @@ namespace Yourlake_Azure.Controllers
             ViewBag.RegionId = new SelectList(db.Regions, "RegionId", "Nom", donnee.RegionId);
             return View(donnee);
         }
-
-        // GET: Donnees/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Donnee donnee = db.Donnnees.Find(id);
-            if (donnee == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.RegionId = new SelectList(db.Regions, "RegionId", "Nom", donnee.RegionId);
-            return View(donnee);
-        }
-
-        // POST: Donnees/Edit/5
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DonneeId,Temperature,Debit,Humidite_eau,Humidite,Time,RegionId")] Donnee donnee)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(donnee).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.RegionId = new SelectList(db.Regions, "RegionId", "Nom", donnee.RegionId);
-            return View(donnee);
-        }
-
-        // GET: Donnees/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Donnee donnee = db.Donnnees.Find(id);
-            if (donnee == null)
-            {
-                return HttpNotFound();
-            }
-            return View(donnee);
-        }
-
-        // POST: Donnees/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Donnee donnee = db.Donnnees.Find(id);
-            db.Donnnees.Remove(donnee);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        
 
         protected override void Dispose(bool disposing)
         {
