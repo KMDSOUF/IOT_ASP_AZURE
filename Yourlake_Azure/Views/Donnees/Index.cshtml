@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Yourlake_Azure.Models.Donnee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Region.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Temperature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Debit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Humidite_eau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Humidite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Region.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Temperature)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Debit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Humidite_eau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Humidite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DonneeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DonneeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DonneeId })
+        </td>
+    </tr>
+}
+
+</table>

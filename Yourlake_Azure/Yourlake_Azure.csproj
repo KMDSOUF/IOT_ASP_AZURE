@@ -197,9 +197,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Context\Context.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DonneesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
+    <Compile Include="Controllers\RegionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,7 +273,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Region\Index.cshtml" />
+    <Content Include="Views\Regions\Create.cshtml" />
+    <Content Include="Views\Regions\Delete.cshtml" />
+    <Content Include="Views\Regions\Details.cshtml" />
+    <Content Include="Views\Regions\Edit.cshtml" />
+    <Content Include="Views\Regions\Index.cshtml" />
+    <Content Include="Views\Donnees\Create.cshtml" />
+    <Content Include="Views\Donnees\Delete.cshtml" />
+    <Content Include="Views\Donnees\Details.cshtml" />
+    <Content Include="Views\Donnees\Edit.cshtml" />
+    <Content Include="Views\Donnees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
