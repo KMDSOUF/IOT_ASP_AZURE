@@ -19,11 +19,14 @@ namespace Yourlake_Azure.Controllers
     {
         private Context.Context db = new Context.Context();
         //liste pour stocker les donner 
-        public static List<Donnee> listeDonnee = new List<Donnee>();
+        private List<Donnee> listeDonnee = new List<Donnee>();
+
+        private Donnee d = new Donnee();
 
         // GET: Donnees
         public ActionResult Index()
         {
+            //charger();
             var donnnees = db.Donnnees.Include(d => d.Region);
             return View(donnnees.ToList());
         }
@@ -42,70 +45,13 @@ namespace Yourlake_Azure.Controllers
             }
             return View(donnee);
         }
-
-        // GET: Donnees/Create
-        public ActionResult Create()
+        public ActionResult charger()
         {
-            ViewBag.RegionId = new SelectList(db.Regions, "RegionId", "Nom");
-            return View();
-        }
-
-        // POST: Donnees/Create
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DonneeId,Temperature,Debit,Humidite_eau,Humidite,Time,RegionId")] Donnee donnee)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Donnnees.Add(donnee);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.RegionId = new SelectList(db.Regions, "RegionId", "Nom", donnee.RegionId);
-            return View(donnee);
-        }
-
-        public void charger()
-        {
-
-        }
-
-        private static async Task<HttpResponseMessage> MakeRequest()
-        {
-            var httpClient = new HttpClient();
-            return await httpClient.GetAsync(new Uri("http://requestb.in/1e6juns1?inspect"));
-        }
-
-        private static string getPage()
-        {
-            string html;
-            // obtain some arbitrary html....
-            using (var client = new WebClient())
-            {
-                html = client.DownloadString("http://requestb.in/16h4ht11?inspect");
-            }
-            // use the html agility pack: http://www.codeplex.com/htmlagilitypack
-            HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(html);
-            StringBuilder sb = new StringBuilder();
-            foreach (HtmlNode node in doc.DocumentNode.SelectNodes("//pre[@class='body prettyprint']"))
-            {
-                sb.AppendLine(node.InnerText);
-            }
-            string final = sb.ToString();
-
-            return final;
-        }
-
-        private static List<Donnee> getDataFromPageThenStoreItToList(string page)
-        {
+            string page = getPage();
             //decouper les chaines dans le fichier
             string[] lines = page.Split(new string[] { "&amp;", "None", "\n" }, StringSplitOptions.None);
 
-            Donnee d = new Donnee();
+
 
             //dictionnaire contenant les cles values
             //Dictionary<string, string> dictionnaire = new Dictionary<string, string>();
@@ -116,7 +62,6 @@ namespace Yourlake_Azure.Controllers
                     string[] pair = line.Split(new[] { '=' });
                     string key = pair[0];
                     string val = pair[1];
-                    Console.WriteLine(key + " : " + val);
 
                     switch (key)
                     {
@@ -144,20 +89,43 @@ namespace Yourlake_Azure.Controllers
                     }
                     if (d.Temperature != "" && d.Debit != "" && d.Humidite_eau != "" && d.Humidite != "" && d.Time != "")
                     {
-                        listeDonnee.Add(d);
+                        d.RegionId = 1;
+                        db.Donnnees.Add(d);
+                        db.SaveChanges();
                         // new Donnee pour réutiliser l'objet d avec des attributs null
                         d = new Donnee();
                     }
                 }
                 catch (Exception e)
                 {
+                    
                 }
 
             }
-            return listeDonnee;
+            return View();
         }
+        
+        private static string getPage()
+        {
+            string html;
+            // obtain some arbitrary html....
+            using (var client = new WebClient())
+            {
+                html = client.DownloadString("http://requestb.in/1fqdvv81?inspect");
+            }
+            // use the html agility pack: http://www.codeplex.com/htmlagilitypack
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(html);
+            StringBuilder sb = new StringBuilder();
+            foreach (HtmlNode node in doc.DocumentNode.SelectNodes("//pre[@class='body prettyprint']"))
+            {
+                sb.AppendLine(node.InnerText);
+            }
+            string final = sb.ToString();
 
-
+            return final;
+        }
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)

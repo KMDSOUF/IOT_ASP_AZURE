@@ -349,9 +349,9 @@
     <Content Include="Views\Regions\Details.cshtml" />
     <Content Include="Views\Regions\Edit.cshtml" />
     <Content Include="Views\Regions\Index.cshtml" />
-    <Content Include="Views\Donnees\Create.cshtml" />
     <Content Include="Views\Donnees\Details.cshtml" />
     <Content Include="Views\Donnees\Index.cshtml" />
+    <Content Include="Views\Donnees\charger.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

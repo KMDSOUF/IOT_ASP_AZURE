@@ -18,5 +18,15 @@ namespace Yourlake_Azure.Models
         public string Time { get; set; }
         public int RegionId { get; set; }
         public virtual Region Region { get; set; }
+
+        public Donnee()
+        {
+            this.Temperature = "";
+            this.Debit = "";
+            this.Humidite_eau = "";
+            this.Humidite = "";
+            this.Time = "";
+        }
+
     }
 }
