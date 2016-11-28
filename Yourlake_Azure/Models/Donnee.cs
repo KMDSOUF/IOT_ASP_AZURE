@@ -15,7 +15,6 @@ namespace Yourlake_Azure.Models
         public string Debit { get; set; }
         public string Humidite_eau { get; set; }
         public string Humidite { get; set; }
-        public string Time { get; set; }
         public int RegionId { get; set; }
         public virtual Region Region { get; set; }
 
@@ -25,7 +24,6 @@ namespace Yourlake_Azure.Models
             this.Debit = "";
             this.Humidite_eau = "";
             this.Humidite = "";
-            this.Time = "";
         }
 
     }

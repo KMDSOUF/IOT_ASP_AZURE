@@ -26,7 +26,6 @@ namespace Yourlake_Azure.Controllers
         // GET: Donnees
         public ActionResult Index()
         {
-            //charger();
             var donnnees = db.Donnnees.Include(d => d.Region);
             return View(donnnees.ToList());
         }
@@ -80,16 +79,15 @@ namespace Yourlake_Azure.Controllers
                             d.Humidite = val;
                             break;
                         case ("time"):
-                            d.Time = val;
                             break;
                         case ("device"):
                             break;
                         case ("signal"):
                             break;
                     }
-                    if (d.Temperature != "" && d.Debit != "" && d.Humidite_eau != "" && d.Humidite != "" && d.Time != "")
+                    if (d.Temperature != "" && d.Debit != "" && d.Humidite_eau != "" && d.Humidite != "")
                     {
-                        d.RegionId = 1;
+                        d.RegionId = 3;
                         db.Donnnees.Add(d);
                         db.SaveChanges();
                         // new Donnee pour réutiliser l'objet d avec des attributs null

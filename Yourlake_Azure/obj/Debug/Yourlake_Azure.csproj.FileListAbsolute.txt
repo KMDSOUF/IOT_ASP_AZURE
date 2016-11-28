@@ -132,3 +132,6 @@ C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_
 C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\bin\System.Net.Http.Extensions.xml
 C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\bin\System.Net.Http.Primitives.xml
 C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\obj\Debug\Yourlake_Azure.csproj.App.config
+C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\obj\Debug\Yourlake_Azure.Migrations.InitialCreate.resources
+C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\obj\Debug\Yourlake_Azure.csproj.GenerateResource.Cache
+C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\obj\Debug\Yourlake_Azure.csprojResolveAssemblyReference.cache
