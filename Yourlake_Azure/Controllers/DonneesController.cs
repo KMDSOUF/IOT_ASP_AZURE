@@ -26,6 +26,8 @@ namespace Yourlake_Azure.Controllers
         // GET: Donnees
         public ActionResult Index()
         {
+            //appel de la methode charger
+            charger();
             var donnnees = db.Donnnees.Include(d => d.Region);
             return View(donnnees.ToList());
         }
@@ -44,7 +46,7 @@ namespace Yourlake_Azure.Controllers
             }
             return View(donnee);
         }
-        public ActionResult charger()
+        public void charger()
         {
             //appel de la methode getpage pour recuperer le fichier des donnees format xml 
             string page = getPage();
@@ -102,7 +104,6 @@ namespace Yourlake_Azure.Controllers
                 catch (Exception e)
                 {}
             }
-            return View();
         }
         
         private static string getPage()

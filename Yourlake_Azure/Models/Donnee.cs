@@ -25,6 +25,7 @@ namespace Yourlake_Azure.Models
             this.Debit = "";
             this.Humidite_eau = "";
             this.Humidite = "";
+            this.timeID = string.Format("{0:HH:mm:ss tt}", DateTime.Now);
         }
 
     }
