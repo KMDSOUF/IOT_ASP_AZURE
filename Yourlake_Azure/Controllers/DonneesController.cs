@@ -18,7 +18,7 @@ namespace Yourlake_Azure.Controllers
     public class DonneesController : Controller
     {
         private Context.Context db = new Context.Context();
-        //liste pour stocker les donner 
+        //liste pour stocker les donnees 
         private List<Donnee> listeDonnee = new List<Donnee>();
 
         private Donnee d = new Donnee();
@@ -46,14 +46,12 @@ namespace Yourlake_Azure.Controllers
         }
         public ActionResult charger()
         {
+            //appel de la methode getpage pour recuperer le fichier des donnees format xml 
             string page = getPage();
-            //decouper les chaines dans le fichier
+            //decouper les chaines dans le fichier pour recuperer 
             string[] lines = page.Split(new string[] { "&amp;", "None", "\n" }, StringSplitOptions.None);
-
-
-
+            
             //dictionnaire contenant les cles values
-            //Dictionary<string, string> dictionnaire = new Dictionary<string, string>();
             foreach (string line in lines)
             {
                 try
@@ -62,6 +60,7 @@ namespace Yourlake_Azure.Controllers
                     string key = pair[0];
                     string val = pair[1];
 
+                    //switch sur les cles afin d'attribuer les bonne valeurs au bons attribus
                     switch (key)
                     {
                         case ("slot_temperature"):
@@ -88,40 +87,45 @@ namespace Yourlake_Azure.Controllers
                     if (d.Temperature != "" && d.Debit != "" && d.Humidite_eau != "" && d.Humidite != "")
                     {
                         d.RegionId = 3;
-                        db.Donnnees.Add(d);
-                        db.SaveChanges();
+                        //inserer l'objet si il n'existe pas dans la base de donnee 
+                        var verifDonnee = from d in db.Donnnees
+                                           select d;
+                        if (verifDonnee.FirstOrDefault() == null)
+                        {
+                            db.Donnnees.Add(d);
+                            db.SaveChanges();
+                        }
                         // new Donnee pour réutiliser l'objet d avec des attributs null
                         d = new Donnee();
                     }
                 }
                 catch (Exception e)
-                {
-                    
-                }
-
+                {}
             }
             return View();
         }
         
         private static string getPage()
         {
+            //methode pour recuperer les donnees en format xml
             string html;
-            // obtain some arbitrary html....
+            
             using (var client = new WebClient())
             {
                 html = client.DownloadString("http://requestb.in/1fqdvv81?inspect");
             }
-            // use the html agility pack: http://www.codeplex.com/htmlagilitypack
+            //agility pack: http://www.codeplex.com/htmlagilitypack
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(html);
             StringBuilder sb = new StringBuilder();
+            //decoupage de la page pour recuperer que les balises <pre> qui contiennent les donnees
             foreach (HtmlNode node in doc.DocumentNode.SelectNodes("//pre[@class='body prettyprint']"))
             {
                 sb.AppendLine(node.InnerText);
             }
-            string final = sb.ToString();
+            string res = sb.ToString();
 
-            return final;
+            return res;
         }
         
         protected override void Dispose(bool disposing)
