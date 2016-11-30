@@ -275,6 +275,10 @@
     <Compile Include="Migrations\201611251339271_InitialCreate.Designer.cs">
       <DependentUpon>201611251339271_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611301244485_addTimeIdForDonneeModel.cs" />
+    <Compile Include="Migrations\201611301244485_addTimeIdForDonneeModel.Designer.cs">
+      <DependentUpon>201611301244485_addTimeIdForDonneeModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Donnee.cs" />
     <Compile Include="Models\Region.cs" />
@@ -343,6 +347,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611251339271_InitialCreate.resx">
       <DependentUpon>201611251339271_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611301244485_addTimeIdForDonneeModel.resx">
+      <DependentUpon>201611301244485_addTimeIdForDonneeModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

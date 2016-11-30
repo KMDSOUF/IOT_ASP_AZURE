@@ -135,3 +135,4 @@ C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_
 C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\obj\Debug\Yourlake_Azure.Migrations.InitialCreate.resources
 C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\obj\Debug\Yourlake_Azure.csproj.GenerateResource.Cache
 C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\obj\Debug\Yourlake_Azure.csprojResolveAssemblyReference.cache
+C:\Users\Soufiane\Documents\Visual Studio 2015\Projects\Yourlake_Azure\Yourlake_Azure\obj\Debug\Yourlake_Azure.Migrations.addTimeIdForDonneeModel.resources
